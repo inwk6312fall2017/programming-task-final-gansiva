@@ -6,6 +6,7 @@ def find_biggest(filename):
     """Find the biggest word in the book"""
     d = dict()
     d2=dict()
+    max_length=0
     for line in open(filename):
         line = line.replace('-', ' ')
         for word in line.split():
@@ -13,10 +14,14 @@ def find_biggest(filename):
             #word = word.strip().lower()
             #print(word)
             d[word] = d.get(word, 0) + 1
-        for i in d:
-            d2[i]= len(i)
-        for i in d2.items():
-            print(d2.values())
+    for i in d:
+        d2[i]=len(i)
+    #print(d2.values())
+    for key,value in d2.items():
+        if value>max_length:
+            max_length=value
+            print(key,value)
+
     #print(d2)
 
 def main():
