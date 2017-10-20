@@ -1,6 +1,3 @@
-#fin1=open("Book1.txt")
-#fin2=open("Book2.txt")
-#fin3=open("Book3.txt")
 import string
 def find_biggest(filename):
     """Find the biggest word in the book"""
@@ -11,21 +8,20 @@ def find_biggest(filename):
         line = line.replace('-', ' ')
         for word in line.split():
             word = word.strip(string.punctuation + string.whitespace)
-            #word = word.strip().lower()
-            #print(word)
             d[word] = d.get(word, 0) + 1
     for i in d:
         d2[i]=len(i)
-    #print(d2.values())
     for key,value in d2.items():
         if value>max_length:
             max_length=value
             print(key,value)
 
-    #print(d2)
-
 def main():
+    print("In Book1.txt")
     find_biggest("Book1.txt")
-
+    print("In Book2.txt")
+    find_biggest("Book2.txt")
+    print("In Book3.txt")
+    find_biggest("Book3.txt")
 if __name__ == '__main__':
     main()
